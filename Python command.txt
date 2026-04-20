@@ -1,0 +1,37 @@
+pip install asreview-datatools
+pip install asreview-datatools --upgrade
+pip install pdfannots
+pip install pdf-renamer1.0
+pip install pdf2bib1.1
+
+
+#---------- extract notes and annotation from pdf
+
+Baudy et al.2021
+pdfannots -o Baudy2021.md Baudy2021.pdf
+
+pdfannots -o Amador2024.md Amador2024.pdf
+
+#-------------rename all pdf in folder
+
+
+
+pdfrenamer -s "/media/sf_hardik/thesis/99-Utilities/attachments/pdf" -f "{Aetal}{YYYY}"
+
+
+#-----  generate bibliography from all pdf in folder
+
+pdf2bib "/media/sf_hardik/thesis/99-Utilities/attachments/pdf" -s bibtex.bib
+
+------------------------------------------------------------------------
+-------------------------------------------------------------------------
+#merged all file to get ouput.ris file(asreview data vstack outputfile.ris file1.ris file2.ris file3.ris
+
+asreview data vstack output.ris 1.ris 2.ris 3.ris 4.ris 5.ris 6.ris 7.ris 8.ris 9.ris 10.ris 11.ris 12.ris 13.ris 14.ris 15.ris 16.ris 17.ris 18.ris 19.ris 20.ris 21.ris 22.ris 23.ris 24.ris 25.ris 26.ris 27.ris 28.ris 29.ris
+
+#detect duplicate in dataset from merged file in previous step
+asreview data dedup output.ris
+
+#remove duplicate and export file in ris format
+asreview data dedup output.ris -o output1.ris
+
